@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="tShirtContainerFront allTshirt">
+        <img src=" ./2023-08-11.png" alt="" class="tShirtFront tShirt">
+        <div class="canvasContainerF"><canvas id="canvasFront"></canvas></div>
+    </div>
+
+
+    <div class="tShirtContainerBack allTshirt">
+        <img src="./2023-08-11 (1).png" alt="" class="tShirtBack tShirt">
+        <div class="canvasContainerB"><canvas id="canvasBack"></canvas></div>
+    </div>
+    <div id="SelectBackFront">
+        <img src="./contour-du-bouton-circulaire-fleche-droite - Copie.png" width="30px" id="btnLeft"
+            style="cursor: pointer;" alt="">
+        <img src="./contour-du-bouton-circulaire-fleche-droite.png" width="30px" id="btnRight" style="cursor: pointer;"
+            alt="">
+    </div>
+    <!-- <div class="canvasContainerF"><canvas id="canvasFront"></canvas></div> -->
+    <!-- <div class="canvasContainerB"><canvas id="canvasBack"></canvas></div> -->
+    <div class="customPanel">
+        <input type="file" id="imageInput" style="display: none;">
+        <div class="PanelOption" id="imageOption">
+            <img src="./images.png" alt="">
+            <p>Image</p>
+        </div>
+        <div class="PanelOption" id="textOption">
+            <img src="./police-de-caractere.png" alt="">
+            <p>Text</p>
+        </div>
+        <div id="toggleDiv">
+            <div id="Text">
+
+                <div>
+                    <label for="fontSelector">
+                        <h4> Police</h4>
+                    </label>
+                    <select id="fontSelector" width="100px">
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="Times New Roman, serif">Times New Roman</option>
+                        <option value="Courier New, monospace">Courier New</option>
+                        <option value="Comic Sans MS, cursive">Comic Sans MS</option>
+                        <option value="Verdana, sans-serif">Verdana</option>
+                        <option value="Brush Script MT, cursive">Brush Script MT</option>
+                        <option value="Papyrus, fantasy">Papyrus</option>
+                    </select>
+                </div>
+                <div>
+
+                    <h4>Couleur</h4>
+
+                    <input type="color" id="colorselector">
+                </div>
+                <center>
+                    <div id="addText">
+                        <img src="./plus.png" alt="">
+                        <center>
+                            <h4>Ajouter text</h4>
+                        </center>
+                    </div>
+                </center>
+            </div>
+            <div id="couleur">
+                <h4>Couleur t-shirt</h4>
+                <div id="CWhite">
+                </div>
+                <div id="Cblack">
+                </div>
+                <div id="CGrey">
+                </div>
+            </div>
+        </div>
+        <div class="PanelOption" id="ProduitOption">
+            <img src="./produit.png" alt="">
+            <p>Produit</p>
+        </div>
+    </div>
+    <div id="valider">
+        <button id="downloadButton">Capturer</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
