@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte
+{% endblock %}
+
+{% block content %}
+<a href="{{ path("app_compte_addresse_add")}}" class="mr-3 btn btn-warning float-right">Ajouter une adresse</a>
+<h1>Mes Addresses</h1>
+
+<p>Bienvenue
+	{{ app.user.firstname}}
+	Dans votre compte</p>
+<a href="{{ path("compte")}}" class="mr-3">
+	Retour
+
+</a>
+<hr>
+{% if app.user.Addresses|length == 0 %}
+<p class="text-center">
+	Vous n'avez pas encore ajouté d'addresse pour en ajouter mercie de
+	<a href="{{ path("app_compte_addresse_add")}}" class="mr-3">
+		cliquer ici</a>
+</p>
+{% else %}
+<div class="row">
+	{% for addresse in app.user.addresses %}
+	<div class="col-md-4">
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{addresse.name}}</h5>
+				<p class="card-text">{{addresse.addresse}}
+					-
+					{{addresse.ville}}
+					-
+					{{addresse.city}}</p>
+				<a href="{{ path("app_compte_addresse_modifier" , { "id" : addresse.id })  }}"class="btn btn-warning">Modifier</a>
+				<a href="{{ path("app_compte_addresse_supprimer" , { "id" : addresse.id })  }}"  class="btn btn-danger">Supprimer</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
+
+
+{% endblock %}

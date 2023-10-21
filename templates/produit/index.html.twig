@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop - FlowUp
+{% endblock %}
+
+{% block content %}
+	<h1>
+		Nos produits
+	</h1>
+	<div class="row">
+		<div class="col-md-3">
+
+			{{form(form)}}
+			</div>
+			<div class="col-md-9">
+				<div class="row product-container">
+					{% for produit in produits %}
+						<div class="col-md-4">
+							<a href="{{path('ProduitDetails',{'slug' : produit.slug})}}">
+								<div class="produit-item">
+									<img src="/uploads/{{produit.Illustration}}" alt="{{produit.nom}}" class="img-fluid">
+									<div>
+										<h3>{{produit.nom}}</h3>
+										<p>{{produit.SousTitre}}</p>
+										<h4 class="prix">{{(produit.prix /100)|number_format(0, '', ' ')}}
+											FCFA</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+	{% endblock %}
+

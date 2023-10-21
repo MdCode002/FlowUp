@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!
+{% endblock %}
+
+{% block content %}
+<h1>Ma commande</h1>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        {{form_start(form ,{action:path("recapCommande")})}}
+        <div class="addresseContainer">
+            {{form_row(form.adresses)}}
+        </div>
+        {{form_row(form.submit)}}
+        {{form_end(form)}}
+    </div>
+    <div class="col-md-6">
+        {% for cart in carts %}
+        <div class="row containerprod">
+            <div class="col-2"><img src="uploads/{{cart.product.illustration}}" alt="" height="75px"></div>
+            <div class="col">{{cart.product.nom}} <br> {{cart.product.SousTitre}} </div>
+            <div class="col">
+                {{cart.quantity }}X
+                {{(cart.product.prix /100)|number_format(0, '', ' ')}}
+                fcfa</div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

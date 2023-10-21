@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - FlowUp
+{% endblock %}
+
+{% block content %}
+	<h1>
+		Mon panier
+	</h1>
+	{% if carts|length >= 1 %}
+
+
+		<div class="row">
+			<div class="col-md-9">
+				<div
+					class="produitPanier">
+					{# {{ dump(cart) }} #}
+					{% set total = 0 %}
+					{% for cart in carts %}
+
+						<div class="row">
+							<div class="col-4 col-md-2"><img src="uploads/{{cart.product.illustration}}" alt="" width="100%"></div>
+							<div class="col-8 col-md-10">
+								<h2>{{cart.product.nom}}</h2>
+								<h5>
+									{{(cart.product.prix /100)|number_format(0, '', ' ')}}
+									fcfa</h5>
+
+								{% set total = total + (cart.product.prix /100 * cart.quantity) %}
+
+								<div class="quantity">
+									<a href="{{path("cartmoin",{'id' : cart.product.id})}}" class="moins">
+										<i class="fa fa-minus " style=" color: #ffffff;"></i>
+									</a>
+									<h6>{{cart.quantity}}</h6>
+									<a href="{{path("cartadd",{'id' : cart.product.id})}}" class="plus">
+										<i class="fa fa-plus " style="color: #ffffff;"></i>
+									</a>
+								</div>
+								<a href="{{path("Produitremove",{'id' : cart.product.id})}}">
+									<i class="fa fa-trash" style="color: #fca311;"></i>
+									Supprimer</a>
+							</div>
+						</div>
+						<hr>
+					{% endfor %}
+				</div>
+
+			</div>
+			<div class="col-md-3 produitPanier">
+				<h5 class="text-center">RÉSUMÉ DU PANIER</h5>
+				<hr>
+				<div class="Soustotal">
+					<span>Total</span>
+					<h5>{{ total|number_format(0, '', ' ') }}
+						FCFA</h5>
+				</div>
+				<hr>
+				<a href="{{path("commande")}}" class="btn btn-block btn-warning">Commander</a>
+			</div>
+		</div>
+	{% else %}
+		<hr>
+		<p>
+			<b>Votre panier est vide</b>
+		</p>
+	{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte
+{% endblock %}
+
+{% block content %}
+<h1>Ajouter une Addresse</h1>
+<a href="{{path("app_compte_addresse")}}" class="mr-3">
+	Retour
+
+</a>
+<hr>
+{{form_start(form)}}
+<div class="row">
+	<div class="col-md-12">{{form_row(form.name)}}</div>
+	<div class="col-md-6">{{form_row(form.prenom)}}</div>
+	<div class="col-md-6">{{form_row(form.nom)}}</div>
+	<div class="col-md-6">{{form_row(form.addresse)}}</div>
+	<div class="col-md-6">{{form_row(form.infoSup)}}</div>
+	<div class="col-md-6">{{form_row(form.ville)}}</div>
+	<div class="col-md-6">{{form_row(form.tel)}}</div>
+</div>
+{{form_end(form)}}
+
+
+{% endblock %}
